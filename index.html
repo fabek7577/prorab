@@ -16,17 +16,53 @@
     </script>
     <script>
       document.addEventListener("keydown", function (event) {
-          if (event.ctrlKey && (event.key === "u" || event.key === "U" || event.key === "s" || event.key === "S")) {
-              event.preventDefault();
-          }
+        if (
+          event.ctrlKey &&
+          (event.key === "u" ||
+            event.key === "U" ||
+            event.key === "s" ||
+            event.key === "S")
+        ) {
+          event.preventDefault();
+        }
       });
-      </script>      
+    </script>
+    <script>
+      document.addEventListener("contextmenu", (event) =>
+        event.preventDefault()
+      );
+
+      document.addEventListener("keydown", (event) => {
+        if (
+          (event.ctrlKey &&
+            (event.key === "u" ||
+              event.key === "s" ||
+              event.key === "i" ||
+              event.key === "j")) ||
+          event.key === "F12" ||
+          (event.ctrlKey && event.shiftKey && event.key === "I")
+        ) {
+          event.preventDefault();
+        }
+      });
+
+      document.addEventListener("copy", (event) => event.preventDefault());
+      document.addEventListener("selectstart", (event) =>
+        event.preventDefault()
+      );
+    </script>
   </head>
   <body>
     <!-- Header -->
     <header>
       <div class="container header-content">
-        <img src="/assets/logo.svg" style="height: 70px" alt="logo" />
+        <img
+          src="/assets/logo.svg"
+          oncontextmenu="return false;"
+          ondragstart="return false;"
+          style="height: 70px"
+          alt="logo"
+        />
         <nav>
           <ul>
             <li><a href="#services">Услуги</a></li>
@@ -170,6 +206,8 @@
           <div class="about-image">
             <img
               src="/assets/prorab-660-1.jpg"
+              oncontextmenu="return false;"
+              ondragstart="return false;"
               alt="Профессиональный прораб на строительной площадке"
             />
           </div>
